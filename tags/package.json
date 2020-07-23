@@ -1,0 +1,12 @@
+{
+  "name": "tags",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@apollo/federation": "^0.18.0",
+    "apollo-server": "^2.16.0",
+    "graphql": "^15.3.0"
+  }
+}

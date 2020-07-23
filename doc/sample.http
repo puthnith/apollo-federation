@@ -1,0 +1,69 @@
+POST http://localhost:5001/
+Content-Type: application/json
+X-Request-Type: GraphQL
+
+query ($id: ID!) {
+  note(id: $id) {
+    id
+    content
+    tags {
+      id
+      notes {
+        id
+        content
+      }
+    }
+  }
+}
+
+{
+  "id": "1"
+}
+
+###
+
+POST http://localhost:5002/
+Content-Type: application/json
+X-Request-Type: GraphQL
+
+query {
+  tags {
+    id
+    name
+  }
+}
+
+###
+
+POST http://localhost:5000/
+Content-Type: application/json
+X-Request-Type: GraphQL
+
+query {
+   tags {
+    id
+    name
+    notes {
+      id
+      content
+      tags {
+        id
+        name
+        notes {
+          id
+        }
+      }
+    }
+  }
+  notes {
+    id
+    content
+    tags {
+      id
+      name
+      notes {
+        id
+      }
+    }
+  }
+}
